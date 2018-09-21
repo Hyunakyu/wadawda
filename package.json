@@ -8,8 +8,6 @@
   },
   "dependencies": {
     "discord.js": "11.4.2",
-    "sqlite": "3.0.0",
-    "sqlite3": "4.0.2",
     "ffmpeg-binaries": "4.0.0",
     "forever": "^0.15.3",
     "forever-service": "^0.5.11",
@@ -17,7 +15,6 @@
     "opusscript": "0.0.6",
     "request": "2.88.0",
     "simple-youtube-api": "5.0.2",
-    "weather": "0.1.0",
     "weather-js": "2.0.0",
     "wolke-api": "1.0.0",
     "ytdl-core": "0.25.2"
