@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true}); // botnya tidak akan bisa mention @everyone
 const config = require("./config/config.json");
-onst prefixes = require("./prefixes.json"); // tempat prefix dan token disini
+const prefixes = require("./prefixes.json"); // tempat prefix dan token disini
 const fs = require("fs");
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
