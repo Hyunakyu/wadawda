@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true}); // botnya tidak akan bisa mention @everyone
-const config = require("./config/config.json");
+const config = require("./config.json");
 const fs = require("fs");
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
