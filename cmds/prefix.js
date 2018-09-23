@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const sql = require("sqLite");
-const dbPromise = sql.open('./sql/tutorial.sqLite', {Promise});
+const dbPromise = sql.open(`./sql/tutorial.sqLite`, {Promise});
 
 exports.run = async (bot, message, args) => {
     const db = await dbPromise;
