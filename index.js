@@ -11,7 +11,7 @@ bot.on("ready", async () => {
 	bot.user.setActivity("-help | -play", {type: "PLAYING"});	
 });
 
-bot.on("message", async message => "message", async message => {
+bot.on("message", async message => {
 	const db = await dbPromise;
 	db.get(`SELECT * FROM prefixes WHERE guildId = "${message.guild.id}"`).then(row => {
 		let prefix;
@@ -31,7 +31,6 @@ bot.on("message", async message => "message", async message => {
 				}else{
 					message.channel.send(`**${message.member.user.tag}** my prefix for this server is \`${row.prefix}\``)
 				}
-			})
 		}
   var searchString = args.slice(1).join(' ');
 	var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
@@ -201,7 +200,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
 	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
-}
+}})
 });
 
 
