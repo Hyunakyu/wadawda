@@ -3,7 +3,7 @@ const bot = new Discord.Client({disableEveryone: true}); // botnya tidak akan bi
 const config = require("./config/config.json"); // tempat prefix dan token disini
 const fs = require("fs");
 const sql = require("sqlite");
-const dbPromise = sql.open(`./sql/tutorial.sqLite`);
+const dbPromise = sql.open(`./cmds/sql/tutorial.sqLite`);
 
 
 bot.on("ready", async () => {
