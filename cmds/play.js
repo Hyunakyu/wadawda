@@ -9,7 +9,6 @@ exports.run = async (bot, message, args) => {
   var searchString = args.slice(1).join(' ');
 	var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
 	var serverQueue = queue.get(message.guild.id);
-    if (args[0].toLowerCase()) {
     var voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
     var permissions = voiceChannel.permissionsFor(message.client.user);
