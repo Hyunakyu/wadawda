@@ -9,7 +9,7 @@ exports.run = async (bot, message, args) => {
     db.get(`SELECT * FROM prefixes WHERE guildId = "${message.guild.id}"`).then(row => {
         if (!row) {
             db.run("INSERT INTO prefixes (guildId, prefix) VALUES (?, ?)", [message.guild.id, args[0]]);
-            message.channel.send(`**${message.member.user.tag}** changed prefix on this server form \`!\` to \`${args[0]}\``);
+            message.channel.send(`**${message.member.user.tag}** changed prefix on this server form \`-\` to \`${args[0]}\``);
 
         }else{
             db.run(`UPDATE prefixes SET prefix = "${args[0]}" WHERE guildId = "${message.guild.id}"`);
