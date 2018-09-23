@@ -15,7 +15,7 @@ exports.run = async (bot, message, args) => {
             db.run(`UPDATE prefixes SET prefix = "${args[0]}" WHERE guildId = "${message.guild.id}"`);
             message.channel.send(`**${message.member.user.tag}** changed prefix on this server form \`${row.prefix}\` to \`${args[0]}\``);
         }
-        if (args[0] === '!'){
+        if (args[0] === '-'){
             db.run(`DELETE FROM prefixes WHERE guildId = "${message.guild.id}"`)
         }
     });
