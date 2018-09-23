@@ -12,8 +12,8 @@ module.exports.run = async (bot, message, args) => {
     .addField("-joke", "Get a random joke.")
     .addField("-roll", "Roll a number between 1-100")
     .addField("-poke", "Poke a user.")
-    .addField("-slots", "Roll the slots!")
-    message.channel.send(embed)
+    .addField("-slots", "Roll the slots!");
+    message.channel.send(embed);
 }
 module.exports.help = {
     name: "fun"
