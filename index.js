@@ -12,8 +12,27 @@ bot.on("ready", async () => {
 });
 
 bot.on("message", async message => {
-    var args = message.content.substring(prefix.length).split(" ");
-    if (!message.content.startsWith(prefix)) return;
+	const db = await dbPromise;
+	db.get(`SELECT * FROM prefixes WHERE guildId = "${message.guild.id}"`).then(row => {
+		let prefix;
+		if (!row) {
+			prefix = config.prefix
+		} else {
+			prefix = row.prefix
+		}
+	let msg = message.content.toLowerCase(); //all sensitive:V 
+    	var args =  message.content.slice(prefix.length).trim().split(" ");
+	if (!msg.startsWith(prefix)) return;
+    	if (!message.content.startsWith(prefix)) return;
+		if (msg === `<@${bot.user.id}>` || msg === `<@-${bot.user.id}>` || msg === "-prefix" || msg === `${prefix}prefix`){
+			db.get(`SELECT * FROM prefixes WHERE guildId - "${message.guild.id}"`).then(row => {
+				if(!row){
+					message.channel.send(`**${message.member.user.tag}** my prefix for this server is \`${prefix}\``)
+				}else{
+					message.channel.send(`**${message.member.user.tag}** my prefix for this server is \`${row.prefix}\``)
+				}
+			})
+		}
   var searchString = args.slice(1).join(' ');
 	var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
 	var serverQueue = queue.get(message.guild.id);
