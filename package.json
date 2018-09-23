@@ -19,6 +19,9 @@
     "weather": "0.1.0",
     "weather-js": "2.0.0",
     "wolke-api": "1.0.0",
+    "superagent": "4.0.0-beta.5",
+    "string-similarity": "1.2.2",
+    "random-puppy": "1.1.0",
     "ytdl-core": "0.25.2"
   }
 }
