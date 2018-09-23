@@ -2,7 +2,7 @@ const YouTube = require('simple-youtube-api');
 const Discord = require("discord.js");
 const ytdl = require('ytdl-core');
 const client = new Discord.Client({disableEveryone: true});
-const youtube = new YouTube("AIzaSyBonrJPtHPxsiO2IpX2f9LwiNp2oigc8eQ");
+const youtube = new YouTube("AIzaSyBwoz1DVFPvAkVpnMS3KMprwa6qBnnn-4w");
 const queue = new Map();
 
 module.exports.run = async (bot, message, args) => {
