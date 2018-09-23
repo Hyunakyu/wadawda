@@ -11,7 +11,7 @@ bot.on("ready", async () => {
 	bot.user.setActivity("-help | -play", {type: "PLAYING"});	
 });
 
-bot.on("message", async message => {
+bot.on("message", async message => "message", async message => {
 	const db = await dbPromise;
 	db.get(`SELECT * FROM prefixes WHERE guildId = "${message.guild.id}"`).then(row => {
 		let prefix;
