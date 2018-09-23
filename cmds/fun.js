@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args) => {
     let embed = new Discord.RichEmbed()
-    .setTitle("<:TAfun:444855091585875979> Fun")
+    .setTitle("<:stuck_out_tongue_closed_eyes:> Fun")
     .setTimestamp()
     .addField("-8ball", "Ask the magical 8ball a question.")
     .addField("-message.prefix +"avatar`", "Get a member's avatar.")
