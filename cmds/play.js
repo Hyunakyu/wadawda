@@ -122,7 +122,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
 	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
-}
+)}
 }
 exports.help = {
 	name: "play"
