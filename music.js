@@ -4,7 +4,7 @@ const ytdl = require('ytdl-core');
 const client = new Discord.Client({disableEveryone: true});
 const youtube = new YouTube("AIzaSyBonrJPtHPxsiO2IpX2f9LwiNp2oigc8eQ");
 const queue = new Map();
-const config = require("./config.json");
+const config = require("./config/config.json");
 let prefix = config.prefix;
 
 var servers = {};

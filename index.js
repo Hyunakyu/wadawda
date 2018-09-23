@@ -1,12 +1,10 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true}); // botnya tidak akan bisa mention @everyone
-const config = require("./config.json");
+const config = require("./config/config.json"); // tempat prefix dan token disini
 const fs = require("fs");
-const YouTube = require('simple-youtube-api');
-const ytdl = require('ytdl-core');
-const client = new Discord.Client({disableEveryone: true});
-const youtube = new YouTube("AIzaSyBonrJPtHPxsiO2IpX2f9LwiNp2oigc8eQ");
-const queue = new Map();
+const sql = require("sqlite");
+const dbPromise = sql.open(`./sql/tutorial.sqLite`);
+
 
 bot.on("ready", async () => {
 	console.log(`${bot.user.username} Sudah online!`);
@@ -14,35 +12,41 @@ bot.on("ready", async () => {
 });
 
 bot.on("message", async message => {
-	let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-	if(!prefixes[message.guild.id]){
-	  prefixes[message.guild.id] = {
-		prefixes: auth.prefix
-	  };
-	}
-	let prefix = prefixes[message.guild.id].prefixes;
-  });
-
-
-bot.on("message", async message => {
 	if (message.author.bot) return; // bot  tidak akan menjawab jika command dikirim oleh bot lain
 	if (message.channel.type === 'dm') return; // bot tidak akan menjawab jika kita menggunakan command di DM atau PM
 
-	let prefix = config.prefix;
-	let msg = message.content.toLowerCase(); //all sensitive:V 
-	let args = message.content.slice(prefix.length).trim().split(" ");
-	let cmd = args.shift().toLowerCase();
-
-	if (!msg.startsWith(prefix)) return;
-
-	try {
-		let commandFile = require(`./cmds/${cmd}.js`);
-		commandFile.run(bot, message, args);
-	}catch (e) {
-		console.log(e.message)
-	}finally {
-		console.log(`${message.author.username} menggunakan perintah ${cmd}`);
-	}
+	const db = await dbPromise;
+	db.get(`SELECT * FROM prefixes WHERE guildId = "${message.guild.id}"`).then(row => {
+		let prefix;
+		if (!row) {
+			prefix = config.prefix
+		} else {
+			prefix = row.prefix
+		}
+		let msg = message.content.toLowerCase(); //all sensitive:V 
+		let args = message.content.slice(prefix.length).trim().split(" ");
+		let cmd = args.shift().toLowerCase();
+		//mention bot for get the prefix
+		if (msg === `<@${bot.user.id}>` || msg === `<@!${bot.user.id}>` || msg === "!prefix" || msg === `${prefix}prefix`){
+			db.get(`SELECT * FROM prefixes WHERE guildId - "${message.guild.id}"`).then(row => {
+				if(!row){
+					message.channel.send(`**${message.member.user.tag}** my prefix for this server is \`${prefix}\``)
+				}else{
+					message.channel.send(`**${message.member.user.tag}** my prefix for this server is \`${row.prefix}\``)
+				}
+			})
+		}
+		if (!msg.startsWith(prefix)) return;
+	
+		try {
+			let commandFile = require(`./cmds/${cmd}.js`);
+			commandFile.run(bot, message, args);
+		}catch (e) {
+			console.log(e.message)
+		}finally {
+			console.log(`${message.author.username} menggunakan perintah ${cmd}`);
+		}	
+	});
 });
 
 
