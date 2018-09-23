@@ -6,7 +6,6 @@ exports.run = async (bot, message, args) => {
 		.setColor("RANDOM") // kalian juga bisa menggunakan kode HEX, cari di google
         .setThumbnail(bicon) // thumbnail dari avatar bot kalian tadi
         .setAuthor("Other Command")
-		.addField("Prefix - ","Change Prefix | -prefix")
         .addField("1. -ping", "cuma buat test Latency:3")
         .addField("2. -prefix", "Untuk mengganti prefix")
         .addField("3. -autorole", "Untuk set autorole")
