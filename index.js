@@ -31,7 +31,7 @@ bot.on("message", async message => {
 				}else{
 					message.channel.send(`**${message.member.user.tag}** my prefix for this server is \`${row.prefix}\``)
 				}
-		}
+		})
   var searchString = args.slice(1).join(' ');
 	var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
 	var serverQueue = queue.get(message.guild.id);
@@ -200,7 +200,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
 	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
-}})
+}}
 });
 
 
