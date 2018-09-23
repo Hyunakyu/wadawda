@@ -7,12 +7,11 @@ const queue = new Map();
 
 module.exports.run = async (bot, message, args) => {
 
- var args = message.content.substring(prefix.length).split(" ");
-    if (!message.content.startsWith(prefix)) return;
-  var searchString = args.slice(1).join(' ');
+var searchString = args.slice(1).join(' ');
 	var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
 	var serverQueue = queue.get(message.guild.id);
-    if (args[0].toLowerCase()) {
+    switch (args[0].toLowerCase()) {
+      case "play": case "p":
     var voiceChannel = message.member.voiceChannel;
 		if (!voiceChannel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
 		var permissions = voiceChannel.permissionsFor(message.client.user);
@@ -61,7 +60,8 @@ Please provide a value to select one of the search results ranging from 1-10.
 				}
 			}
 			return handleVideo(video, message, voiceChannel);
-      
+		}
+
 async function handleVideo(video, message, voiceChannel, playlist = false) {
 	var serverQueue = queue.get(message.guild.id);
 	console.log(video);
@@ -122,7 +122,8 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
 	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
-)}
+}	
+	
 }
 exports.help = {
 	name: "play"
