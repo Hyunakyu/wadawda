@@ -18,7 +18,7 @@ bot.on("message", async message => {
 	const db = await dbPromise;
 	db.get(`SELECT * FROM prefixes WHERE guildId = "${message.guild.id}"`).then(row => {
 		let prefix;
-		if (-row) {
+		if (!row) {
 			prefix = config.prefix
 		} else {
 			prefix = row.prefix
@@ -36,7 +36,7 @@ bot.on("message", async message => {
 				}
 			})
 		}
-		if (-msg.startsWith(prefix)) return;
+		if (!msg.startsWith(prefix)) return;
 	
 		try {
 			let commandFile = require(`./cmds/${cmd}.js`);
