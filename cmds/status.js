@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args) => {
-if(message.author.id !== "264015893434990592") if(message.author.id !== "438019097683558420") return message.channel.send("You may not use this command because you are not a developer");
+if(message.author.id !== "264015893434990592") if(message.author.id !== "438019097683558420") return message.channel.send(":no_entry_sign: You may not use this command because you are not a developer");
 
 if(args[0] == "online") return bot.user.setStatus("online"), bot.user.setActivity("-help | -play", {type: "PLAYING"});
 
