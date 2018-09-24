@@ -7,7 +7,8 @@ exports.run = async (bot, message, args) => {
         .setThumbnail(bicon) // thumbnail dari avatar bot kalian tadi
         .setAuthor("Anime Command")
         .addField("1. -anime", "melihat info anime")
-        .addField("2. -manga", "Error Untuk Saat Ini");
+        .addField("2. -hug", "Hug Anime For Tag")
+	.addField("3. -kiss", "Kiss Anime For Tag");
 
 		message.channel.send(botembed); // untuk mengirim embed yang sudah dibuat diatas..
 }
