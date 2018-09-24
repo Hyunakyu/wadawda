@@ -14,3 +14,7 @@ module.exports.run = async (bot, message, args) => {
            message.channel.send("``[Q u e l a] has successfully rebooted!``")
        }
     }
+exports.help = {
+	name: "reboot"
+}
+
