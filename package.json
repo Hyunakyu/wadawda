@@ -22,6 +22,7 @@
     "superagent": "4.0.0-beta.5",
     "string-similarity": "1.2.2",
     "random-puppy": "1.1.0",
-    "ytdl-core": "0.25.2"
+    "ytdl-core": "0.25.2",
+    "node-static": "0.7.11"
   }
 }
