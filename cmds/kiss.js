@@ -10,7 +10,7 @@ exports.run = async (bot, message, args) => {
     .get(`https://nekos.life/api/v2/img/kiss`);
 
     let hugEmbed = new Discord.RichEmbed()
-    .setTitle("Kiss! :kissing_heart:  ")
+    .setTitle("Kiss!")
     .setDescription(`**${message.author.username}** Kiss **${message.mentions.users.first().username}**!`)
     .setImage(body.url)
     .setColor("RANDOM")
