@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("1. -quiz", "get a question.")
     .addField("2. -8ball", "Ask the magical 8ball a question.")
     .addField("3. -avatar", "Get a member's avatar.")
-    .addField("4.-doggo", "Get a random dog image.")
+    .addField("4. -doggo", "Get a random dog image.")
     .addField("5. -cat", "Get random cat image.")
     .addField("6. -meme", "Get a random meme.")
     .addField("7. -joke", "Get a random joke.")
