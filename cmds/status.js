@@ -9,7 +9,7 @@ if(args[0] == "hidden") return bot.user.setStatus("invisible"), bot.user.setActi
 
 if(args[0] == "perbaikan") return bot.user.setStatus("dnd"), bot.user.setActivity("Maintenance", {type: "PLAYING"});
 
-if(args[0] == "game") return bot.user.setStatus("idle"), bot.user.setActivity("GTA V", {type: "PLAYING"});
+if(args[0] == "game") return bot.user.setStatus("idle"), bot.user.setActivity("Grand Theft Auto V", {type: "PLAYING"});
 
 }
 exports.help = {
