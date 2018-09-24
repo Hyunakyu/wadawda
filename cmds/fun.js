@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args) => {
     let embed = new Discord.RichEmbed()
-    .setTitle(":robot: Fun")
+    .setTitle("Fun Command")
     .setTimestamp()
     .addField("1. -quiz", "get a question.")
     .addField("2. -8ball", "Ask the magical 8ball a question.")
