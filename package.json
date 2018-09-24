@@ -12,6 +12,7 @@
     "forever": "^0.15.3",
     "forever-service": "^0.5.11",
     "mal-scraper": "2.4.5",
+    "moment": "2.22.2",
     "opusscript": "0.0.6",
     "request": "2.88.0",
     "simple-youtube-api": "5.0.2",
