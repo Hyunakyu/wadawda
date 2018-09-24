@@ -7,6 +7,7 @@ exports.run = async (bot, message, args) => {
         .setThumbnail(bicon) // thumbnail dari avatar bot kalian tadi
         .setAuthor("Music Command")
 	.addField("Aktivasi Terlebhi Dahulu BotMUSIC", "Dengan Cara -play, -play blackpink")
+	.addField("WARNING", "Prefix ONLY - ")
         .addField("1. -play / -p", "Untuk Memutar Musik")
 	.addField("2. -skip", "Untuk Skip Musik Keselanjutnya")
 	.addField("3. -stop", "Untuk Sto[ Musik")
